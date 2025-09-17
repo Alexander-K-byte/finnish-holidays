@@ -1,17 +1,24 @@
 {
   "name": "finnish-holidays",
   "version": "1.0.0",
-  "description": "Typescript library for Finnish public holidays",
-  "main": "index.js",
+  "description": "TypeScript library for Finnish public holidays",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepare": "npm run build"
   },
   "keywords": [
     "finland",
     "suomi",
     "lomat",
-    "holidays",
     "public-holidays",
     "date",
     "typescript"
@@ -20,11 +27,11 @@
   "license": "GPL-3.0-only",
   "type": "module",
   "dependencies": {
-    "date-fns": "^4.1.0",
-    "typescript": "^5.9.2"
+    "date-fns": "^4.1.0"
   },
   "devDependencies": {
     "@types/node": "^24.5.1",
+    "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   }
 }

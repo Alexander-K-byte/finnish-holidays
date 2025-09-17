@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Typescript library for Finnish public holidays",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "finland",
     "suomi",
@@ -16,7 +13,7 @@
     "typescript"
   ],
   "author": "Alexander Kerr, Metatavu",
-  "license": "LGPL-3.0-or-later",
+  "license": "GPL-3.0-only",
   "type": "module",
   "dependencies": {
     "date-fns": "^4.1.0",

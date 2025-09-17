@@ -8,14 +8,23 @@ import {
     type Holiday
 } from "./handler";
 
-const getHolidays = (year: number): Holiday[] => [
-    ...getFixedHolidays(year),
-    getGoodFriday(year),
-    getEasterMonday(year),
-    getAscensionDay(year),
-    getPentecost(year),
-    getMidsummer(year),
-];
+/**
+ * Returns all Finnish public holidays for given year
+ * includes fixed and shifting holidays, only return midsummer if defined
+ * @param year Specific year you want holidays for 
+ */
+const getHolidays = (year: number): Holiday[] => {
+    const midsummer = getMidsummer(year);
+
+    return [
+        ...getFixedHolidays(year),
+        getGoodFriday(year),
+        getEasterMonday(year),
+        getAscensionDay(year),
+        getPentecost(year),
+        ...(midsummer ? [midsummer] : []),
+    ];
+};
 
 export {
     type Holiday,

@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Typescript library for Finnish public holidays",
   "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
   "keywords": [
     "finland",
     "suomi",
@@ -18,5 +22,9 @@
   "dependencies": {
     "date-fns": "^4.1.0",
     "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.1",
+    "vitest": "^3.2.4"
   }
 }

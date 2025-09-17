@@ -1,4 +1,4 @@
-import { format } from "date-fns"
+import { addDays, format } from "date-fns"
 
 export interface Holiday {
     date: string;
@@ -25,4 +25,57 @@ const getFixedHolidays = (year: number): Holiday[] => {
     }));
 };
 
-export { formatDate, getFixedHolidays }
+/**
+ * computus algorithm for calculating Easter holidays
+ */
+const getEasterSunday = (year: number): Date => {
+    const a = year % 19;
+    const b = Math.floor(year / 100);
+    const c = year % 100;
+    const d = Math.floor(b / 4);
+    const e = b % 4;
+    const f = Math.floor((b + 8) / 25);
+    const g = Math.floor((b - f + 1) / 3);
+    const h = (19 * a + b - d - g + 15) % 30;
+    const i = Math.floor(c / 4);
+    const k = c % 4;
+    const l = (32 + 2 * e + 2 * i - h - k) % 7;
+    const m = Math.floor((a + 11 * h + 22 * l) / 451);
+    const month = Math.floor((h + l - 7 * m + 114) / 31) - 1; // zero-indexed
+    const day = ((h + l - 7 * m + 114) % 31) + 1;
+    return new Date(year, month, day);
+};
+
+const getGoodFriday = (year: number): Holiday => {
+    const easter = getEasterSunday(year);
+    const date = addDays(easter, - 2);
+    return { date: formatDate(date), name: "Good Friday", type: "public" };
+};
+
+const getEasterMonday = (year: number): Holiday => {
+    const easter = getEasterSunday(year);
+    const date = addDays(easter, +1);
+    return { date: formatDate(date), name: "Easter Monday", type: "public" };
+};
+
+/**
+ * Midsummer, first Saturday 20-26 June
+ */
+const getMidsummer = (year: number) => {
+    const start = new Date(year, 5, 20);
+    for (let i = 0; i <= 6; i++) {
+        const a = addDays(start, i);
+        if (a.getDay() === 6) {
+            return { date: formatDate(a), name: "Midsummer", type: "public" }
+        }
+    }
+};
+
+export {
+    formatDate,
+    getFixedHolidays,
+    getEasterSunday,
+    getEasterMonday,
+    getGoodFriday,
+    getMidsummer
+};

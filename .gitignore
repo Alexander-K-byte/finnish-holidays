@@ -1,0 +1,33 @@
+# Node dependencies (large, auto-generated, never commit)
+node_modules/
+
+# Build output (compiled JavaScript / bundles)
+dist/
+build/
+out/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables (if you add them later)
+.env
+.env.local
+.env.test
+.env.production
+
+# Editor/IDE settings
+.vscode/
+.idea/
+
+# Temporary files
+*.swp
+*.swo
+
+# macOS system files
+.DS_Store

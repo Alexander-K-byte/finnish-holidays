@@ -1,0 +1,25 @@
+{
+  "name": "finnish-holidays",
+  "version": "1.0.0",
+  "description": "Typescript library for Finnish public holidays",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "finland",
+    "suomi",
+    "lomat",
+    "holidays",
+    "public-holidays",
+    "date",
+    "typescript"
+  ],
+  "author": "Alexander Kerr, Metatavu",
+  "license": "LGPL-3.0-or-later",
+  "type": "module",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "typescript": "^5.9.2"
+  }
+}

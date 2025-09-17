@@ -1,4 +1,4 @@
-import { format, formatDate } from "date-fns"
+import { format } from "date-fns"
 
 export interface Holiday {
     date: string;

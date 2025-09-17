@@ -13,6 +13,7 @@ const getFixedHolidays = (year: number): Holiday[] => {
         { day: 1, month: 0, name: "New Year's Day" },
         { day: 6, month: 0, name: "Epiphany" },
         { day: 1, month: 4, name: "May Day" },
+        { day: 4, month: 10, name: "All Saints' day" },
         { day: 6, month: 11, name: "Independence day" },
         { day: 25, month: 11, name: "Christmas Day" },
         { day: 26, month: 11, name: "Boxing Day" }
@@ -21,7 +22,7 @@ const getFixedHolidays = (year: number): Holiday[] => {
     return fixed.map(f => ({
         date: formatDate(new Date(year, f.month, f.day)),
         name: f.name,
-        type: "public",
+        type: "public"
     }));
 };
 
@@ -59,6 +60,24 @@ const getEasterMonday = (year: number): Holiday => {
 };
 
 /**
+ * Ascension day is 40 days after easter Sunday
+ */
+const getAscensionDay = (year: number): Holiday => {
+    const easter = getEasterSunday(year);
+    const date = addDays(easter, +40);
+    return { date: formatDate(date), name: "Ascension day", type: "public" };
+};
+
+/**
+ * Pentecost is 10 days after Ascension day or 50 days after easter
+ */
+const getPentecost = (year: number): Holiday => {
+    const easter = getEasterSunday(year);
+    const date = addDays(easter, +50);
+    return { date: formatDate(date), name: "Pentecost", type: "public" };
+};
+
+/**
  * Midsummer, first Saturday 20-26 June
  */
 const getMidsummer = (year: number) => {
@@ -77,5 +96,7 @@ export {
     getEasterSunday,
     getEasterMonday,
     getGoodFriday,
+    getAscensionDay,
+    getPentecost,
     getMidsummer
 };

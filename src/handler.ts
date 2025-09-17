@@ -6,8 +6,16 @@ export interface Holiday {
     type: "public" | "observance"
 }
 
+/**
+ * Formats date object to string using dd-MM-yyyy.
+ * @param d object to format
+ */
 const formatDate = (d: Date): string => format(d, "dd-MM-yyyy");
 
+/**
+ * Creates a list of fixed holiday dates and names
+ * @param year Year to get holidays for
+ */
 const getFixedHolidays = (year: number): Holiday[] => {
     const fixed = [
         { day: 1, month: 0, name: "New Year's Day" },
@@ -27,7 +35,7 @@ const getFixedHolidays = (year: number): Holiday[] => {
 };
 
 /**
- * computus algorithm for calculating Easter Sunday
+ * Using computus algorithm for calculating Easter Sunday for given year
  */
 const getEasterSunday = (year: number): Date => {
     const a = year % 19;
@@ -48,12 +56,18 @@ const getEasterSunday = (year: number): Date => {
     return new Date(year, month, day);
 };
 
+/**
+ * Find Good Friday based on date for Easter Sunday
+ */
 const getGoodFriday = (year: number): Holiday => {
     const easter = getEasterSunday(year);
     const date = addDays(easter, - 2);
     return { date: formatDate(date), name: "Good Friday", type: "public" };
 };
 
+/**
+ * Find Easter Monday based on date for Easter Sunday
+ */
 const getEasterMonday = (year: number): Holiday => {
     const easter = getEasterSunday(year);
     const date = addDays(easter, +1);
@@ -61,7 +75,7 @@ const getEasterMonday = (year: number): Holiday => {
 };
 
 /**
- * Ascension day is 39 days after easter Sunday
+ * Find Ascension Day based on date for Easter Sunday
  */
 const getAscensionDay = (year: number): Holiday => {
     const easter = getEasterSunday(year);
@@ -70,7 +84,7 @@ const getAscensionDay = (year: number): Holiday => {
 };
 
 /**
- * Pentecost is 10 days after Ascension day or 49 days after easter
+ * Find Pentecost based on date for Easter Sunday
  */
 const getPentecost = (year: number): Holiday => {
     const easter = getEasterSunday(year);
@@ -81,15 +95,15 @@ const getPentecost = (year: number): Holiday => {
 /**
  * Midsummer, first Saturday 20-26 June
  */
-const getMidsummer = (year: number): Holiday => {
-    const start = new Date(year, 5, 20);
+const getMidsummer = (year: number): Holiday | undefined => {
+    const start = new Date(year, 5, 20); // June 20
     for (let i = 0; i <= 6; i++) {
         const d = addDays(start, i);
         if (d.getDay() === 6) {
             return { date: formatDate(d), name: "Midsummer Day", type: "public" };
         }
     }
-    throw new Error("Failed to calculate Midsummer for year " + year);
+    return undefined;
 };
 
 

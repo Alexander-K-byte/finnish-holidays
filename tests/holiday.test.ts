@@ -11,7 +11,7 @@ describe("Finnish Holidays", () => {
         });
     });
 
-    it("should include all calculated moving holidays", () => {
+    it("should include all shifting holidays", () => {
         const holidays: Holiday[] = getHolidays(2025);
 
         const expectedHolidays = [

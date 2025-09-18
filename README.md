@@ -32,4 +32,9 @@ Small script added for testing:
     + Holiday type
     + Correct count of fixed holidays
 
+### Further testing
+
+Tested for multiple years, included snapshot testing to ensure
+correct dates were found and that it worked for leap years.
+
 ## Under Development...

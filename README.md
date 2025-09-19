@@ -37,4 +37,19 @@ Small script added for testing:
 Tested for multiple years, included snapshot testing to ensure
 correct dates were found and that it worked for leap years.
 
-## Under Development...
+### Changes
+Handler
+
+* Created Holiday type
+* Easter
+    + Removed export for Easter Sunday
+    + Consolidated all Easter based holidays in to a single block
+    + Updated exports
+* Changed method of finding Midsummer from iteration to calculation
+
+Index
+
+* Updated imports
+* Updated returns for getHolidays
+
+---EOF---

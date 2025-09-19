@@ -1,28 +1,20 @@
 import {
     getFixedHolidays,
-    getGoodFriday,
-    getEasterMonday,
-    getAscensionDay,
-    getPentecost,
+    getEasterHolidays,
     getMidsummer,
     type Holiday
 } from "./handler";
 
 /**
- * Returns all Finnish public holidays for given year
- * includes fixed and shifting holidays, only return midsummer if defined
- * @param year Specific year you want holidays for 
+ * Returns all Finnish public holidays for a given year.
+ * Includes fixed holidays, Easter-related holidays, and Midsummer.
+ * @param year Year to get holidays for
  */
 const getHolidays = (year: number): Holiday[] => {
-    const midsummer = getMidsummer(year);
-
     return [
         ...getFixedHolidays(year),
-        getGoodFriday(year),
-        getEasterMonday(year),
-        getAscensionDay(year),
-        getPentecost(year),
-        ...(midsummer ? [midsummer] : []),
+        ...getEasterHolidays(year),
+        getMidsummer(year),
     ];
 };
 
@@ -30,9 +22,6 @@ export {
     type Holiday,
     getHolidays,
     getFixedHolidays,
-    getGoodFriday,
-    getEasterMonday,
-    getAscensionDay,
-    getPentecost,
-    getMidsummer,
+    getEasterHolidays,
+    getMidsummer
 };

@@ -1,10 +1,13 @@
 import { addDays, format } from "date-fns"
 
+type HolidayType = "public";
+
 export interface Holiday {
     date: string;
     name: string;
-    type: "public" | "observance"
+    type: HolidayType;
 }
+
 
 /**
  * Formats date object to string using dd-MM-yyyy.
@@ -57,63 +60,56 @@ const getEasterSunday = (year: number): Date => {
 };
 
 /**
- * Find Good Friday based on date for Easter Sunday
+ * Find easter related holidays based on date of Easter Sunday :
+ * Good Friday, Easter Monday, Ascension Day, Pentecost.
  */
-const getGoodFriday = (year: number): Holiday => {
+const getEasterHolidays = (year: number): Holiday[] => {
     const easter = getEasterSunday(year);
-    const date = addDays(easter, - 2);
-    return { date: formatDate(date), name: "Good Friday", type: "public" };
-};
 
-/**
- * Find Easter Monday based on date for Easter Sunday
- */
-const getEasterMonday = (year: number): Holiday => {
-    const easter = getEasterSunday(year);
-    const date = addDays(easter, +1);
-    return { date: formatDate(date), name: "Easter Monday", type: "public" };
-};
+    const goodFriday: Holiday = {
+        date: formatDate(addDays(easter, -2)),
+        name: "Good Friday",
+        type: "public"
+    };
 
-/**
- * Find Ascension Day based on date for Easter Sunday
- */
-const getAscensionDay = (year: number): Holiday => {
-    const easter = getEasterSunday(year);
-    const date = addDays(easter, 39);
-    return { date: formatDate(date), name: "Ascension Day", type: "public" };
-};
+    const easterMonday: Holiday = {
+        date: formatDate(addDays(easter, 1)),
+        name: "Easter Monday",
+        type: "public"
+    };
 
-/**
- * Find Pentecost based on date for Easter Sunday
- */
-const getPentecost = (year: number): Holiday => {
-    const easter = getEasterSunday(year);
-    const date = addDays(easter, 49);
-    return { date: formatDate(date), name: "Pentecost", type: "public" };
+    const ascensionDay: Holiday = {
+        date: formatDate(addDays(easter, 39)),
+        name: "Ascension Day",
+        type: "public"
+    };
+
+    const pentecost: Holiday = {
+        date: formatDate(addDays(easter, 49)),
+        name: "Pentecost",
+        type: "public"
+    };
+
+    return [goodFriday, easterMonday, ascensionDay, pentecost];
 };
 
 /**
  * Midsummer, first Saturday 20-26 June
  */
-const getMidsummer = (year: number): Holiday | undefined => {
-    const start = new Date(year, 5, 20); // June 20
-    for (let i = 0; i <= 6; i++) {
-        const d = addDays(start, i);
-        if (d.getDay() === 6) {
-            return { date: formatDate(d), name: "Midsummer Day", type: "public" };
-        }
-    }
-    return undefined;
+const getMidsummer = (year: number): Holiday => {
+    const june20 = new Date(year, 5, 20); // June 20
+    const dayOfWeek = june20.getDay();    // 0 = Sunday, 6 = Saturday
+    const daysToSaturday = (6 - dayOfWeek + 7) % 7;
+    const midsummerDate = addDays(june20, daysToSaturday);
+
+    return { date: formatDate(midsummerDate), name: "Midsummer Day", type: "public" };
 };
 
 
 export {
+    type HolidayType,
     formatDate,
     getFixedHolidays,
-    getEasterSunday,
-    getEasterMonday,
-    getGoodFriday,
-    getAscensionDay,
-    getPentecost,
+    getEasterHolidays,
     getMidsummer
 };

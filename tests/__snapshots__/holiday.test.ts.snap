@@ -1,5 +1,265 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Finnish Holidays Library > Year 2024 > matches snapshot for full holiday list 1`] = `
+[
+  {
+    "date": "01-01-2024",
+    "name": "New Year's Day",
+    "type": "public",
+  },
+  {
+    "date": "06-01-2024",
+    "name": "Epiphany",
+    "type": "public",
+  },
+  {
+    "date": "01-05-2024",
+    "name": "May Day",
+    "type": "public",
+  },
+  {
+    "date": "04-11-2024",
+    "name": "All Saints' Day",
+    "type": "public",
+  },
+  {
+    "date": "06-12-2024",
+    "name": "Independence Day",
+    "type": "public",
+  },
+  {
+    "date": "25-12-2024",
+    "name": "Christmas Day",
+    "type": "public",
+  },
+  {
+    "date": "26-12-2024",
+    "name": "Boxing Day",
+    "type": "public",
+  },
+  {
+    "date": "29-03-2024",
+    "name": "Good Friday",
+    "type": "public",
+  },
+  {
+    "date": "01-04-2024",
+    "name": "Easter Monday",
+    "type": "public",
+  },
+  {
+    "date": "09-05-2024",
+    "name": "Ascension Day",
+    "type": "public",
+  },
+  {
+    "date": "19-05-2024",
+    "name": "Pentecost",
+    "type": "public",
+  },
+  {
+    "date": "22-06-2024",
+    "name": "Midsummer Day",
+    "type": "public",
+  },
+]
+`;
+
+exports[`Finnish Holidays Library > Year 2025 > matches snapshot for full holiday list 1`] = `
+[
+  {
+    "date": "01-01-2025",
+    "name": "New Year's Day",
+    "type": "public",
+  },
+  {
+    "date": "06-01-2025",
+    "name": "Epiphany",
+    "type": "public",
+  },
+  {
+    "date": "01-05-2025",
+    "name": "May Day",
+    "type": "public",
+  },
+  {
+    "date": "04-11-2025",
+    "name": "All Saints' Day",
+    "type": "public",
+  },
+  {
+    "date": "06-12-2025",
+    "name": "Independence Day",
+    "type": "public",
+  },
+  {
+    "date": "25-12-2025",
+    "name": "Christmas Day",
+    "type": "public",
+  },
+  {
+    "date": "26-12-2025",
+    "name": "Boxing Day",
+    "type": "public",
+  },
+  {
+    "date": "18-04-2025",
+    "name": "Good Friday",
+    "type": "public",
+  },
+  {
+    "date": "21-04-2025",
+    "name": "Easter Monday",
+    "type": "public",
+  },
+  {
+    "date": "29-05-2025",
+    "name": "Ascension Day",
+    "type": "public",
+  },
+  {
+    "date": "08-06-2025",
+    "name": "Pentecost",
+    "type": "public",
+  },
+  {
+    "date": "21-06-2025",
+    "name": "Midsummer Day",
+    "type": "public",
+  },
+]
+`;
+
+exports[`Finnish Holidays Library > Year 2026 > matches snapshot for full holiday list 1`] = `
+[
+  {
+    "date": "01-01-2026",
+    "name": "New Year's Day",
+    "type": "public",
+  },
+  {
+    "date": "06-01-2026",
+    "name": "Epiphany",
+    "type": "public",
+  },
+  {
+    "date": "01-05-2026",
+    "name": "May Day",
+    "type": "public",
+  },
+  {
+    "date": "04-11-2026",
+    "name": "All Saints' Day",
+    "type": "public",
+  },
+  {
+    "date": "06-12-2026",
+    "name": "Independence Day",
+    "type": "public",
+  },
+  {
+    "date": "25-12-2026",
+    "name": "Christmas Day",
+    "type": "public",
+  },
+  {
+    "date": "26-12-2026",
+    "name": "Boxing Day",
+    "type": "public",
+  },
+  {
+    "date": "03-04-2026",
+    "name": "Good Friday",
+    "type": "public",
+  },
+  {
+    "date": "06-04-2026",
+    "name": "Easter Monday",
+    "type": "public",
+  },
+  {
+    "date": "14-05-2026",
+    "name": "Ascension Day",
+    "type": "public",
+  },
+  {
+    "date": "24-05-2026",
+    "name": "Pentecost",
+    "type": "public",
+  },
+  {
+    "date": "20-06-2026",
+    "name": "Midsummer Day",
+    "type": "public",
+  },
+]
+`;
+
+exports[`Finnish Holidays Library > Year 2032 > matches snapshot for full holiday list 1`] = `
+[
+  {
+    "date": "01-01-2032",
+    "name": "New Year's Day",
+    "type": "public",
+  },
+  {
+    "date": "06-01-2032",
+    "name": "Epiphany",
+    "type": "public",
+  },
+  {
+    "date": "01-05-2032",
+    "name": "May Day",
+    "type": "public",
+  },
+  {
+    "date": "04-11-2032",
+    "name": "All Saints' Day",
+    "type": "public",
+  },
+  {
+    "date": "06-12-2032",
+    "name": "Independence Day",
+    "type": "public",
+  },
+  {
+    "date": "25-12-2032",
+    "name": "Christmas Day",
+    "type": "public",
+  },
+  {
+    "date": "26-12-2032",
+    "name": "Boxing Day",
+    "type": "public",
+  },
+  {
+    "date": "26-03-2032",
+    "name": "Good Friday",
+    "type": "public",
+  },
+  {
+    "date": "29-03-2032",
+    "name": "Easter Monday",
+    "type": "public",
+  },
+  {
+    "date": "06-05-2032",
+    "name": "Ascension Day",
+    "type": "public",
+  },
+  {
+    "date": "16-05-2032",
+    "name": "Pentecost",
+    "type": "public",
+  },
+  {
+    "date": "26-06-2032",
+    "name": "Midsummer Day",
+    "type": "public",
+  },
+]
+`;
+
 exports[`Finnish Holidays for 2024 > should match the full holiday list snapshot 1`] = `
 [
   {

@@ -40,6 +40,7 @@ correct dates were found and that it worked for leap years.
 ### Changes
 Handler
 
+* Changed from date-fns to luxon
 * Created Holiday type
 * Easter
     + Removed export for Easter Sunday
@@ -51,5 +52,10 @@ Index
 
 * Updated imports
 * Updated returns for getHolidays
+
+Testing
+
+* Implemented more comprehensive testing
+* Test output now has coverage and verbose outputs
 
 ---EOF---

@@ -7,16 +7,23 @@ Supports both fixed-date and moving holidays (like Easter-based holidays).
 ## fixed holidays
 
 Hard coded fixed holiday dates 
-e.g.. Christmas Day, New Year.
+* New Year's Day
+* Epiphany
+* May Day
+* All Saints' Day
+* Independence Day
+* Christmas Day
+* Boxing Day
 
 ---
 ## Shifting holidays
-Added additional code to work out dates for the following:
-* Good Friday
-* Easter Monday
-* Ascension Day
-* Pentecost
-* Midsummer Day
+Computus algorithm used to find Easter Sunday.
+* Following holidays calculated from Easter Sunday:
+  + Good Friday
+  + Easter Monday
+  + Ascension Day
+  + Pentecost
+  + Midsummer Day
 
 ---
 

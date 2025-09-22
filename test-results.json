@@ -24,7 +24,7 @@
     "updated": 0,
     "didUpdate": false
   },
-  "startTime": 1758275441709,
+  "startTime": 1758526907371,
   "success": true,
   "testResults": [
     {
@@ -36,7 +36,7 @@
           "fullName": "Finnish Holidays for 2024 should include Independence Day",
           "status": "passed",
           "title": "should include Independence Day",
-          "duration": 2.868739000000005,
+          "duration": 13.77075400000001,
           "failureMessages": [],
           "meta": {}
         },
@@ -47,7 +47,7 @@
           "fullName": "Finnish Holidays for 2024 should include all fixed-date public holidays",
           "status": "passed",
           "title": "should include all fixed-date public holidays",
-          "duration": 0.4757329999999911,
+          "duration": 0.6896300000000224,
           "failureMessages": [],
           "meta": {}
         },
@@ -58,7 +58,7 @@
           "fullName": "Finnish Holidays for 2024 should include all calculated moving holidays",
           "status": "passed",
           "title": "should include all calculated moving holidays",
-          "duration": 0.5234359999999469,
+          "duration": 0.6966630000000009,
           "failureMessages": [],
           "meta": {}
         },
@@ -69,7 +69,7 @@
           "fullName": "Finnish Holidays for 2024 should match the full holiday list snapshot",
           "status": "passed",
           "title": "should match the full holiday list snapshot",
-          "duration": 1.4424329999999372,
+          "duration": 1.5963680000000409,
           "failureMessages": [],
           "meta": {}
         },
@@ -80,7 +80,7 @@
           "fullName": "Finnish Holidays for 2025 should include Independence Day",
           "status": "passed",
           "title": "should include Independence Day",
-          "duration": 0.3354029999999284,
+          "duration": 0.4186339999999973,
           "failureMessages": [],
           "meta": {}
         },
@@ -91,7 +91,7 @@
           "fullName": "Finnish Holidays for 2025 should include all fixed-date public holidays",
           "status": "passed",
           "title": "should include all fixed-date public holidays",
-          "duration": 0.17868299999997816,
+          "duration": 1.4988559999999893,
           "failureMessages": [],
           "meta": {}
         },
@@ -102,7 +102,7 @@
           "fullName": "Finnish Holidays for 2025 should include all calculated moving holidays",
           "status": "passed",
           "title": "should include all calculated moving holidays",
-          "duration": 0.3796230000000378,
+          "duration": 0.6203290000000266,
           "failureMessages": [],
           "meta": {}
         },
@@ -113,7 +113,7 @@
           "fullName": "Finnish Holidays for 2025 should match the full holiday list snapshot",
           "status": "passed",
           "title": "should match the full holiday list snapshot",
-          "duration": 0.5229969999999184,
+          "duration": 0.5722380000000271,
           "failureMessages": [],
           "meta": {}
         },
@@ -124,7 +124,7 @@
           "fullName": "Finnish Holidays for 2026 should include Independence Day",
           "status": "passed",
           "title": "should include Independence Day",
-          "duration": 0.2563389999999117,
+          "duration": 0.5399980000000255,
           "failureMessages": [],
           "meta": {}
         },
@@ -135,7 +135,7 @@
           "fullName": "Finnish Holidays for 2026 should include all fixed-date public holidays",
           "status": "passed",
           "title": "should include all fixed-date public holidays",
-          "duration": 0.2862450000000081,
+          "duration": 0.3221229999999764,
           "failureMessages": [],
           "meta": {}
         },
@@ -146,7 +146,7 @@
           "fullName": "Finnish Holidays for 2026 should include all calculated moving holidays",
           "status": "passed",
           "title": "should include all calculated moving holidays",
-          "duration": 0.2835810000000265,
+          "duration": 0.36939599999999473,
           "failureMessages": [],
           "meta": {}
         },
@@ -157,13 +157,13 @@
           "fullName": "Finnish Holidays for 2026 should match the full holiday list snapshot",
           "status": "passed",
           "title": "should match the full holiday list snapshot",
-          "duration": 0.3886039999999866,
+          "duration": 0.40286700000001474,
           "failureMessages": [],
           "meta": {}
         }
       ],
-      "startTime": 1758275442666,
-      "endTime": 1758275442673.3887,
+      "startTime": 1758526907673,
+      "endTime": 1758526907695.4028,
       "status": "passed",
       "message": "",
       "name": "/home/alex/Web Projects/finnish-holidays/tests/holiday.test.ts"

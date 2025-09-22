@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { getHolidays, type Holiday } from "../src/index";
-import { formatDate } from "../src/handler"
+import { getHolidays, type Holiday, formatDate } from "../src/index";
+import { DateTime } from "luxon";
 
 // Years to test, including leap years and typical years
 const testYears = [2024, 2025, 2026];
@@ -11,11 +11,12 @@ testYears.forEach(year => {
         it("should include Independence Day", () => {
             const holidays: Holiday[] = getHolidays(year);
             expect(holidays).toContainEqual({
-                date: formatDate(new Date(year, 11, 6)), // December 6
+                date: formatDate(DateTime.local(year, 12, 6)), // Use Luxon
                 name: "Independence Day",
                 type: "public",
             });
         });
+
 
         it("should include all fixed-date public holidays", () => {
             const holidays: Holiday[] = getHolidays(year);

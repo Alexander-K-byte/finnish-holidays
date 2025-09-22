@@ -1,4 +1,5 @@
 import {
+    formatDate,
     getFixedHolidays,
     getEasterHolidays,
     getMidsummer,
@@ -14,7 +15,7 @@ const getHolidays = (year: number): Holiday[] => {
     return [
         ...getFixedHolidays(year),
         ...getEasterHolidays(year),
-        getMidsummer(year),
+        getMidsummer(year)
     ];
 };
 
@@ -23,5 +24,6 @@ export {
     getHolidays,
     getFixedHolidays,
     getEasterHolidays,
-    getMidsummer
+    getMidsummer,
+    formatDate
 };

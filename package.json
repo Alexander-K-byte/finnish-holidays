@@ -13,6 +13,8 @@
   "scripts": {
     "build": "tsc",
     "test": "vitest run",
+    "test:watch": "vitest",
+    "test:all": "mkdir -p tests/results && vitest run --coverage --reporter=verbose --reporter=json > tests/results/test-results.json",
     "prepare": "npm run build"
   },
   "keywords": [
@@ -27,12 +29,12 @@
   "license": "GPL-3.0-only",
   "type": "module",
   "dependencies": {
-    "date-fns": "^4.1.0",
     "luxon": "^3.7.2"
   },
   "devDependencies": {
     "@types/luxon": "^3.7.1",
     "@types/node": "^24.5.1",
+    "@vitest/coverage-v8": "^3.2.4",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   }

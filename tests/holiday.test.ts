@@ -1,61 +1,79 @@
-import { describe, it, expect } from "vitest";
-import { getHolidays, type Holiday, formatDate } from "../src/index";
+import { describe, it, expect, beforeAll } from "vitest";
+import { getHolidays, type Holiday } from "../src/index";
 import { DateTime } from "luxon";
 
-// Years to test, including leap years and typical years
-const testYears = [2024, 2025, 2026];
+const testYears = [2024, 2025, 2026, 2032]; // include leap year
 
-testYears.forEach(year => {
-    describe(`Finnish Holidays for ${year}`, () => {
+describe("Finnish Holidays Library", () => {
+    testYears.forEach(year => {
+        describe(`Year ${year}`, () => {
 
-        it("should include Independence Day", () => {
-            const holidays: Holiday[] = getHolidays(year);
-            expect(holidays).toContainEqual({
-                date: formatDate(DateTime.local(year, 12, 6)), // Use Luxon
-                name: "Independence Day",
-                type: "public",
+            let holidays: Holiday[];
+
+            beforeAll(() => {
+                holidays = getHolidays(year);
             });
-        });
 
-
-        it("should include all fixed-date public holidays", () => {
-            const holidays: Holiday[] = getHolidays(year);
-            const fixedNames = [
-                "New Year's Day",
-                "Epiphany",
-                "May Day",
-                "All Saints' Day",
-                "Independence Day",
-                "Christmas Day",
-                "Boxing Day",
-            ];
-
-            const fixedHolidays = holidays.filter(
-                (h): h is Holiday => fixedNames.includes(h.name)
-            );
-            expect(fixedHolidays.length).toBe(fixedNames.length);
-        });
-
-        it("should include all calculated moving holidays", () => {
-            const holidays: Holiday[] = getHolidays(year);
-            const movingNames = [
-                "Good Friday",
-                "Easter Monday",
-                "Ascension Day",
-                "Pentecost",
-                "Midsummer Day",
-            ];
-
-            movingNames.forEach(name => {
-                const holiday = holidays.find(h => h.name === name);
-                expect(holiday).toBeDefined();
-                expect(holiday?.type).toBe("public");
+            it("includes all fixed-date public holidays", () => {
+                const fixedNames = [
+                    "New Year's Day",
+                    "Epiphany",
+                    "May Day",
+                    "All Saints' Day",
+                    "Independence Day",
+                    "Christmas Day",
+                    "Boxing Day",
+                ];
+                fixedNames.forEach(name => {
+                    const holiday = holidays.find(h => h.name === name);
+                    expect(holiday).toBeDefined();
+                    expect(holiday?.type).toBe("public");
+                });
             });
-        });
 
-        it("should match the full holiday list snapshot", () => {
-            const holidays: Holiday[] = getHolidays(year);
-            expect(holidays).toMatchSnapshot();
+            it("includes all Easter-related holidays", () => {
+                const movingNames = ["Good Friday", "Easter Monday", "Ascension Day", "Pentecost"];
+                movingNames.forEach(name => {
+                    const holiday = holidays.find(h => h.name === name);
+                    expect(holiday).toBeDefined();
+                    expect(holiday?.type).toBe("public");
+                });
+            });
+
+            it("includes Midsummer Day", () => {
+                const midsummer = holidays.find(h => h.name === "Midsummer Day");
+                expect(midsummer).toBeDefined();
+                expect(midsummer?.type).toBe("public");
+
+                // Ensure it's between June 20-26
+                const midsummerDate = DateTime.fromFormat(midsummer!.date, "dd-MM-yyyy");
+                expect(midsummerDate.month).toBe(6);
+                expect(midsummerDate.day).toBeGreaterThanOrEqual(20);
+                expect(midsummerDate.day).toBeLessThanOrEqual(26);
+                expect(midsummerDate.weekday).toBe(6); // Saturday
+            });
+
+            it("aggregated getHolidays returns correct total count", () => {
+                // 7 fixed + 4 Easter-related + 1 Midsummer
+                const expectedCount = 7 + 4 + 1;
+                expect(holidays.length).toBe(expectedCount);
+            });
+
+            it("matches snapshot for full holiday list", () => {
+                expect(holidays).toMatchSnapshot();
+            });
+
+            it("has correctly formatted dates", () => {
+                holidays.forEach(h => {
+                    // Must match dd-MM-yyyy
+                    expect(h.date).toMatch(/^\d{2}-\d{2}-\d{4}$/);
+                });
+            });
+
+            it("returns consistent dates for fixed holidays across multiple years", () => {
+                const independenceDay = holidays.find(h => h.name === "Independence Day");
+                expect(independenceDay?.date.endsWith(`-${year}`)).toBe(true);
+            });
         });
     });
 });
